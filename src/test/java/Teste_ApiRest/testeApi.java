@@ -9,14 +9,16 @@ public class testeApi {
 
     @Test
     public void exibirNome(){
+        //teste para imprimir o nome que esta na estrutura list
         Response response = RestAssured.request(Method.GET, "https://api.trello.com/1/actions/592f11060f95a3d3d46a987a");
 
-        System.out.println(response.path("data.list.name"));
+        System.out.println("Nome contido na estrutura list é: "+ response.path("data.list.name"));
 
     }
 
     @Test
     public void verificaStatusCode(){
+    // teste que valida se status code é 200, qualquer outro status irá gerar erro
 
         RestAssured.given()
                 .when()
