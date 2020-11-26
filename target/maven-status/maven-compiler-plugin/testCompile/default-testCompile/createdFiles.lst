@@ -1,0 +1,7 @@
+step/Screenshot.class
+step/NameGenerator.class
+step/codigo.class
+step/ConnectionPoolingBeanTest.class
+step/PostgresSQLJDBC.class
+step/ConnectionFactory.class
+step/Generator.class
