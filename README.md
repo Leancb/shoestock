@@ -1,8 +1,15 @@
 # shoestock
 
-Para o teste de Automação Web rodar src/test/java/Teste_Web/Validar mercadorias.feature
+Para baixar o projeto: 
 
-Para o teste de Automação  de Api  rodar classe java src/test/java/Teste_ApiRest/testeApi.java
+Em seu terminal execute o comando  git clone https://github.com/Leancb/shoestock.git 
+
+Ainda no terminal, execute a seguinte operação:
+
+mvn eclipse:eclipse No Eclipse/STS, importe o projeto com o Maven.
+
+Para o teste de Automação Web rodar o Run em src/test/java/Teste_Web/Validar mercadorias.feature
+
+Para o teste de Automação  de Api rodar o Run da classe java em src/test/java/Teste_ApiRest/testeApi.java
 
 
-Gerenciador de dependências Maven
