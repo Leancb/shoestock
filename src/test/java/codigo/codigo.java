@@ -108,15 +108,15 @@ public class codigo {
         System.out.println(tmp2);
 
         //clicar no icone do sapato
-        Thread.sleep(300);
+        wait.until(visibilityOfElementLocated(By.xpath("//*[@id=\"item-list\"]/div[1]/div[1]/div[1]/a/img")));
         navegador.findElement(By.xpath("//*[@id=\"item-list\"]/div[1]/div[1]/div[1]/a/img")).click();
 
         //selecionar o tamanho
-        Thread.sleep(300);
+        wait.until(visibilityOfElementLocated(By.xpath("//*[@id=\"buy-box\"]/section[2]/div/ul/li[4]/a")));
         navegador.findElement(By.xpath("//*[@id=\"buy-box\"]/section[2]/div/ul/li[4]/a")).click();
 
         //clicar em comprar
-        Thread.sleep(300);
+        wait.until(visibilityOfElementLocated(By.cssSelector("#buy-button-now > span")));
         navegador.findElement(By.cssSelector("#buy-button-now > span")).click();
 
 
