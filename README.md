@@ -1,4 +1,7 @@
-# shoestock
+# Automação Web / API
+
+Projeto de automação web utilizando Selenium Webdriver, Java e Cucumber. Automação de Api com Junit.
+
 
 Para baixar o projeto: 
 
