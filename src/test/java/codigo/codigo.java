@@ -20,6 +20,8 @@ public class codigo {
     private String tmp;
     private String tmp2;
 
+
+
     //chamar a classe gera nome
     NameGenerator nameGenerator = new NameGenerator();
     String name = nameGenerator.generateName();
@@ -49,22 +51,21 @@ public class codigo {
 
     @Quando("^realizei busca por(.*)$")
     public void buscamercadoria(String arg1) throws InterruptedException {
-
+        Thread.sleep(300);
 
         By searchId = By.xpath("//*[@id=\"header-content\"]/header/div/div/section[2]/section/form/div/button");
         WebDriverWait wait = new WebDriverWait(navegador, 20);
 
-        Thread.sleep(300);
 
-        WebElement nomeId =wait.until(visibilityOfElementLocated(searchId));
 
         wait.until(visibilityOfElementLocated(searchId));
-
-
         navegador.findElement(By.id("search-input")).sendKeys(arg1);
+        navegador.findElement(By.id("search-input")).click();
 
+        WebElement nomeId =  wait.until(visibilityOfElementLocated(By.xpath("//*[@id=\"header-content\"]/header/div/div/section[2]/section/form/div/button")));
         //botao pesquisar
         nomeId.click();
+
 
 
 
@@ -73,22 +74,25 @@ public class codigo {
 
     @Quando("^adicionei sapato a cesta$")
     public void adicionaitem1() throws InterruptedException {
-        Thread.sleep(300);
+        WebDriverWait wait = new WebDriverWait(navegador, 20);
+        wait.until(visibilityOfElementLocated(By.xpath("//*[@id=\"item-list\"]/div[1]/div[1]/div[1]/a/img")));
 
         //pegar o texto do sapato
         tmp =  navegador.findElement(By.xpath("//*[@id=\"item-list\"]/div[1]/div[1]/div[2]/a[1]/span")).getText();
         System.out.println(tmp);
 
-        //clicar no icone do sapato
 
+        wait.until(visibilityOfElementLocated(By.xpath("//*[@id=\"item-list\"]/div[1]/div[1]/div[1]/a/img")));
+        //clicar no icone do sapato
         navegador.findElement(By.xpath("//*[@id=\"item-list\"]/div[1]/div[1]/div[1]/a/img")).click();
 
+
+        wait.until(visibilityOfElementLocated(By.xpath("//*[@id=\"buy-box\"]/section[2]/div/ul/li[4]/a")));
         //selecionar o tamanho
-        Thread.sleep(300);
         navegador.findElement(By.xpath("//*[@id=\"buy-box\"]/section[2]/div/ul/li[4]/a")).click();
 
+        wait.until(visibilityOfElementLocated(By.cssSelector("#buy-button-now > span")));
         //clicar em comprar
-        Thread.sleep(300);
         navegador.findElement(By.cssSelector("#buy-button-now > span")).click();
 
 
@@ -96,7 +100,8 @@ public class codigo {
 
     @Quando("^adicionei tennis a cesta$")
     public void adicionaitem2() throws InterruptedException {
-
+        WebDriverWait wait = new WebDriverWait(navegador, 20);
+        wait.until(visibilityOfElementLocated(By.xpath("//*[@id=\"item-list\"]/div[1]/div[1]/div[1]/a/img")));
 
         //pegar o texto do sapato
         tmp2 =  navegador.findElement(By.xpath("//*[@id=\"item-list\"]/div[1]/div[1]/div[2]/a[1]/span")).getText();
@@ -142,8 +147,9 @@ public class codigo {
 
     @Quando("^escolher mais produtos$")
     public void maisprodutos() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(navegador, 20);
+        wait.until(visibilityOfElementLocated(By.xpath("/html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div/a[2]")));
 
-        Thread.sleep(300);
         //selecionar mais produtos
         navegador.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div/a[2]")).click();
 
